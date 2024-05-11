@@ -12,7 +12,7 @@
 
 <body>
   <main>
-        <form class="form">
+        <form id="form" class="form">
             <h1>Inicio de sesion</h1>
             <p>Ingresa tus credenciales para poder ingresar </p>
             <div>
@@ -22,12 +22,14 @@
             </div>
 
             <div>
-                <label for="Contraseña" class="label">Contraseña</label>
+                <label for="Contrasena" class="label">Contraseña</label>
 
-                <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña de usuario">
+
+                <input type="password" name="Contraseña" id="Contrasena" placeholder="Contraseña de usuario">
             </div>
-            <button type="submit">Inicio de seion</button>
-            <p class="Error">Error a iniciar sesion</p>
+            <br>
+            <button id="submit" type="submit">Inicio de sesion</button>
+            <p id="error" class="Error"></p>
 
         </form>
         <p class="Link">No tienes Cuenta?<a href="index.html">Registrate</a></p>

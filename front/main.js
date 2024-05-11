@@ -24,6 +24,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
         },
         body: JSON.stringify(datos)
     })
+    
     .then(response => {
         if (!response.ok) {
             throw new Error('Error en la solicitud');
