@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MVHK8wbqXHVzISdMBoJlXXwZJyEJgMuUXh3sEjQ+tbtjqrOpSmWCKqjcjyLsyEyYtTzLH 9ScNTs+ygGyMFgXMw =="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ejemploBD/front/Css/equipos.css">
+    <title>Equipo</title>
+</head>
+<body>
+    <nav class="navbar custom-navbar fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <div class="escudo me-0">
+                    <img src="/ejemploBD/front/images/escudo.png" alt="Logo">
+                </div>
+                <h1 class="m-0">Equipos</h1>
+            </div>
+           
+            <label for="notificacion-checkbox">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill icono" viewBox="0 0 16 16">
+                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+                </svg>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon custom-toggler-icon"></span>
+                </button>
+            </label>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Equipos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Salas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Nuevo Equipo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Cerra Secion</a></li>          
+                    </ul>             
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="notificacion">
+        <p>Tienes una nueva notificación.</p>
+    </div>
+    <br><br><br><br><br>
+    <main>
+        <section class="Equipos container card-center">
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="/ejemploBD/front/images/uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="/ejemploBD/front/images/uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="/ejemploBD/front/images/uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="/ejemploBD/front/images/uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="/ejemploBD/front/images/uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 20rem;">
+            <img src="/ejemploBD/front/images/uno.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">ICARO-(Segundo Piso)</h5>
+                <p class="card-text">Algunos ejemplos rápidos de texto para construir en el título de la tarjeta y conformar la mayor parte del contenido de la tarjeta.</p>
+                <button class="btn btn-primary ver-mas">Ver más</button>
+                <div class="contenido-adicional" style="display: none;">
+                    <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                </div>
+            </div>
+        </div>
+       
+
+        <br><br><br><br><br><br>
+        <!-- Botones aquí -->
+        <nav class="navbar-2 ">
+            <div class="col">
+                <button type="button" class="btn btn-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+                      </svg>
+                </button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                      </svg>
+                </button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      </svg>
+                </button>
+            </div>
+        </nav>
+        <script src="/ejemploBD/front/Js/Alerta.js"></script>
+        <script src="/ejemploBD/front/Js/equipos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 document.getElementById('form-equipos').addEventListener('submit', function(event) {
     event.preventDefault()
 
