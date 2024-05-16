@@ -40,6 +40,6 @@ document.getElementById('form').addEventListener('submit', function(event) {
             document.getElementById('error-message').innerText = "El usuario ya está registrado. Por favor, ingresa otro correo electrónico.";
         } else {
             document.getElementById('error-message').innerText = "Error al procesar la solicitud.";
-        }º1
+        }
     });
 });

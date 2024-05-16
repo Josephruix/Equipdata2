@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             console.log('Inicio de sesión exitoso:', data);
-            window.location.href="Salas.html"
+            window.location.href="/front/Html/Salas.html"
         })
         .catch(error => {
             console.error('Error:', error);

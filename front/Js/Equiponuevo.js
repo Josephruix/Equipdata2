@@ -9,6 +9,7 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
     var Equipo= document.getElementById('Equipo').value;
     var Sala= document.getElementById('idsala').value;
     var serial= document.getElementById('serial').value;
+    var imagen= document.getElementById('imagen').files[0];
     
     var datos = {
         Marca: Marca,
@@ -17,7 +18,8 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
         Empresa:Empresa,
         Equipo:Equipo,
         Sala:Sala ,
-        serial:serial
+        serial:serial,
+        imagen:imagen.buffer
       }
 
     

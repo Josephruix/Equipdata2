@@ -1,37 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    fetch("http://localhost:3000/informacion")
-      .then(response => response.json()) 
-      .then(salas => {
-     
-        const salasContainer = document.getElementById('salas-informacion');
+fetch('http://localhost:3000/Equipos') 
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos de los equipos');
+        }
+        return response.json();
+    })
+    .then(data => {
         
-     
-        salasContainer.innerHTML = '';
-  
-       
-        salas.forEach(sala => {
-          
-          const salasElement = document.createElement('div');
-          sala.innerHTML = `
-          
-            
+        console.log('Datos de equipos recibidos:', data);
+        const equiposContainer = document.getElementById('Equipos-F');
+        data.forEach(datos=> {
+            const nuevoDiv = document.createElement('div');
+            nuevoDiv.classList.add('card', 'col-md-4'); 
+            nuevoDiv.innerHTML = `
+                <img src="${datos.img}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Nombre: ${sala.Nombre}</h5>
-                    <p class="card-text">Ubicacion: ${sala.Ubicacion}</p>
-                    <p class="card-text">Capacidad de equipos: ${sala.Capacidad}</p>
-                    <p class="card-text">N-Equipos en la sala: ${sala.Cantidad}</p>
-                    <button  id="relacion" class="btn btn-primary">Ver Más</button>
+                    <h5 class="card-title">${datos.Marca}</h5>
+                    <p class="card-text">${datos.Serial}</p>
+                    <button class="btn btn-primary ver-mas">Ver más</button>
+                    <div class="contenido-adicional" style="display: none;">
+                        <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                    </div>
                 </div>
+            `;
            
-        
-          `;
-         
-          salasContainer.appendChild(salasElement);
+            equiposContainer.appendChild(nuevoDiv);
+            
         });
-      })
-      .catch(error => {
         
-        console.error('Error al obtener usuarios:', error);
-      });
-  });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
