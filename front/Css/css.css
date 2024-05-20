@@ -60,7 +60,7 @@ select {
 }
 /*Css Salas*/
 .custom-navbar {
-    background-image: linear-gradient(to right, rgb(255, 102, 0), rgb(241, 104, 12));
+    background-image: linear-gradient(to right, rgb(255, 102, 0), rgb(241, 104, 12),White);
    
 }
 .custom-navbar .navbar-brand {

@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/Equipos') 
+fetch('http://localhost:3000/Equipos')
     .then(response => {
         if (!response.ok) {
             throw new Error('Error al obtener los datos de los equipos');
@@ -6,7 +6,6 @@ fetch('http://localhost:3000/Equipos')
         return response.json();
     })
     .then(data => {
-        
         console.log('Datos de equipos recibidos:', data);
         const equiposContainer = document.getElementById('Equipos-F');
         data.forEach(datos=> {
@@ -19,15 +18,32 @@ fetch('http://localhost:3000/Equipos')
                     <p class="card-text">${datos.Serial}</p>
                     <button class="btn btn-primary ver-mas">Ver más</button>
                     <div class="contenido-adicional" style="display: none;">
-                        <p>Información adicional que se muestra al hacer clic en Ver más.</p>
+                        <p>${datos.Descripcion}</p>
+                        <p>${datos.Empresa}</p>
+                        <p>${datos.Estado}</p>
+                        <p>${datos.Tipo_de_Equipo}</p>
                     </div>
-                </div>
-            `;
-           
+                `;
             equiposContainer.appendChild(nuevoDiv);
-            
         });
-        
+
+        const botonesVerMas = document.querySelectorAll('.ver-mas');
+
+        botonesVerMas.forEach((boton) => {
+            boton.addEventListener('click', () => {
+               
+                const contenidoAdicional = boton.nextElementSibling;
+
+                
+                if (contenidoAdicional.style.display === 'none' || contenidoAdicional.style.display === '') {
+                    contenidoAdicional.style.display = 'block';
+                    boton.textContent = 'Ver menos'; 
+                } else {
+                    contenidoAdicional.style.display = 'none';
+                    boton.textContent = 'Ver más'; 
+                }
+            });
+        });
     })
     .catch(error => {
         console.error('Error:', error);

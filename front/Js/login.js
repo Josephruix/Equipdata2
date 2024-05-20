@@ -33,9 +33,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('error').innerText = "Error al iniciar sesión. Verifica tus credenciales.";
             } else if (error.message === 'Usuario no encontrado') {
                 document.getElementById('error').innerText = "El usuario ingresado no existe.";
+            } else if (error.status === 401) {
+                document.getElementById('error').innerText = "Usuario o contraseña incorrectos.";
             } else {
                 document.getElementById('error').innerText = "Error de conexión. Por favor, intenta de nuevo más tarde.";
             }
         });
+        
     });
 });
