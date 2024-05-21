@@ -10,6 +10,11 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
     var Sala= document.getElementById('idsala').value;
     var serial= document.getElementById('serial').value;
     var imagen= document.getElementById('imagen').files[0];
+    var form= document.getElementById("form-equipos")
+    var formdata=new FormData(form);
+    console.log(formdata)
+    
+
     
     var datos = {
         Marca: Marca,
@@ -27,10 +32,8 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
 
     fetch('http://localhost:3000/G-Equipos', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datos)
+       
+        body: formdata
     })
     
     .then(response => {

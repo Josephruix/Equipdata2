@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error en la solicitud');
+                return response.json().then(error => { throw error; });
             }
             return response.json();
         })
@@ -29,16 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => {
             console.error('Error:', error);
-            if (error.message === 'Error en la solicitud') {
-                document.getElementById('error').innerText = "Error al iniciar sesión. Verifica tus credenciales.";
-            } else if (error.message === 'Usuario no encontrado') {
-                document.getElementById('error').innerText = "El usuario ingresado no existe.";
-            } else if (error.status === 401) {
-                document.getElementById('error').innerText = "Usuario o contraseña incorrectos.";
+            if (error.mensaje) {
+                document.getElementById('error').innerText = error.mensaje;
             } else {
                 document.getElementById('error').innerText = "Error de conexión. Por favor, intenta de nuevo más tarde.";
             }
         });
-        
     });
 });

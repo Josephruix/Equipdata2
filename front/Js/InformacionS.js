@@ -19,31 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="card-text">Ubicacion: ${datos.ubicacion}</p>
                             <p class="card-text">Capacidad de equipos: ${datos.Capacidad_de_Equipos}</p>
                             <p class="card-text">N-Equipos en la sala: ${datos.Equipos_en_sala}</p>
-                            <button class="btn btn-primary ver-mas" href="equipos.html">Ver Más</button>
+                            <button class="btn btn-primary ver-mas" data-sala="${datos.Nombre}">Ver Más</button>
                         </div>
                     </div>
                 `;
                 equiposContainer.appendChild(nuevoli);
             });
 
-           
             equiposContainer.addEventListener('click', (event) => {
                 if (event.target && event.target.classList.contains('ver-mas')) {
-                    //window.location.href = "equipos.html";
-                    
-                    fetch('http://localhost:3000/consulta')
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                        
+                    const sala = event.target.getAttribute('data-sala');
+                    window.location.href = `equipos.html?sala=${sala}`;
                 }
             });
         })
-        
         .catch(error => {
             console.error('Error:', error);
         });
