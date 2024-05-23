@@ -34,10 +34,11 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Eventos</a>
+                        <a class="nav-link" href="eventos.html">Eventos</a>
                     </li>
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="equipos.html">Equipos</a>
+                        <a class="nav-link" href="Nuevasala.html">Agregar Nueva Sala</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Salas.html">Salas</a>
@@ -72,7 +73,7 @@
             <option value="Mantenimiento">Mantenimiento</option>
         </select>
         <label for="Empresa" class="label">Empresa al que pertenece</label>
-        <select name="Estado" id="Empresa" >
+        <select name="Empresa" id="Empresa" >
             <option value="" disabled selected>seleccione la empresa al que pertenece</option>
             <option value="Bs" >Bs Support</option>
             <option value="Politecnico">Polcolan</option>
@@ -87,8 +88,8 @@
             <option value="Teclado">Teclado</option>
         </select>
         <div>
-            <label for="serial" class="label">Escriba el serial</label>
-            <input type="text" name="sala" id="serial" placeholder="Ingresa el nombre de la sala ">
+            <label for="idequipos" class="label">Escriba el codigo de la empresa</label>
+            <input type="text" name="idequipos" id="idequipos" placeholder="Ingresa el nombre de la sala ">
         </div>
         <div>
             <label for="idsala" class="label">Escriba el nombre de la sala</label>
@@ -140,7 +141,7 @@
 </main>
 <script src="/front//Js/Alerta.js"></script>
 <script src="/front/Js/Equiponuevo.js"></script>
-<script src="/front/Js/equipos.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

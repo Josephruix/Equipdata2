@@ -2,21 +2,21 @@
 document.getElementById('form-equipos').addEventListener('submit', function(event) {
     event.preventDefault()
 
-    var Marca= document.getElementById('Marca').value;
+   /* var Marca= document.getElementById('Marca').value;
     var Descripcion= document.getElementById('Descripcion').value;
     var Estado= document.getElementById('Estado').value;
     var Empresa= document.getElementById('Empresa').value;
     var Equipo= document.getElementById('Equipo').value;
     var Sala= document.getElementById('idsala').value;
     var serial= document.getElementById('serial').value;
-    var imagen= document.getElementById('imagen').files[0];
+    var imagen= document.getElementById('imagen').files[0];*/
     var form= document.getElementById("form-equipos")
     var formdata=new FormData(form);
     console.log(formdata)
     
 
     
-    var datos = {
+  /*  var datos = {
         Marca: Marca,
         Descripcion : Descripcion,
         Estado: Estado, 
@@ -25,7 +25,7 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
         Sala:Sala ,
         serial:serial,
         imagen:imagen.buffer
-      }
+      }*/
 
     
 

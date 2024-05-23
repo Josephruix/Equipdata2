@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
     
         const usuario = document.getElementById("Correo").value;
         const Contrasena = document.getElementById("Contrasena").value;
+        const errorElement = document.getElementById('error');
+
+        errorElement.innerText = '';
+
+        
+        if (usuario.trim() === '' || Contrasena.trim() === '') {
+            errorElement.innerText = 'Por favor, complete todos los campos.';
+            return;
+        }
     
         fetch("http://localhost:3000/verificar-usuario", {
             method: 'POST',
