@@ -1,41 +1,33 @@
-
 document.getElementById('form-equipos').addEventListener('submit', function(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-   /* var Marca= document.getElementById('Marca').value;
-    var Descripcion= document.getElementById('Descripcion').value;
-    var Estado= document.getElementById('Estado').value;
-    var Empresa= document.getElementById('Empresa').value;
-    var Equipo= document.getElementById('Equipo').value;
-    var Sala= document.getElementById('idsala').value;
-    var serial= document.getElementById('serial').value;
-    var imagen= document.getElementById('imagen').files[0];*/
-    var form= document.getElementById("form-equipos")
-    var formdata=new FormData(form);
-    console.log(formdata)
-    
+    var Marca = document.getElementById('Marca').value;
+    var Descripcion = document.getElementById('Descripcion').value;
+    var Estado = document.getElementById('Estado').value;
+    var Empresa = document.getElementById('Empresa').value;
+    var Equipo = document.getElementById('Equipo').value;
+    var Sala = document.getElementById('idsala').value;
+    var serial = document.getElementById('idequipos').value;
+    var imagen = document.getElementById('imagen').files[0];
 
-    
-  /*  var datos = {
+    var datos = {
         Marca: Marca,
-        Descripcion : Descripcion,
-        Estado: Estado, 
-        Empresa:Empresa,
-        Equipo:Equipo,
-        Sala:Sala ,
-        serial:serial,
-        imagen:imagen.buffer
-      }*/
-
-    
-
+        Descripcion: Descripcion,
+        Estado: Estado,
+        Empresa: Empresa,
+        Equipo: Equipo,
+        Sala: Sala,
+        serial: serial,
+        imagen: imagen ? imagen.buffer : null
+    };
 
     fetch('http://localhost:3000/G-Equipos', {
         method: 'POST',
-       
-        body: formdata
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
     })
-    
     .then(response => {
         if (!response.ok) {
             throw new Error('Error en la solicitud');
@@ -46,6 +38,6 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
         console.log('Respuesta del servidor:', data);
     })
     .catch(error => {
-        console.error('Error:', error)
+        console.error('Error:', error);
     });
 });

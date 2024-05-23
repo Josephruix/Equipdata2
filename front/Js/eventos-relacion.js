@@ -33,12 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById('submite').addEventListener('click', () => {
+    document.getElementById('submite').addEventListener('click', (event) => {
+        event.preventDefault();  
         const salaFinal = document.getElementById('final').value;
-        //const equiposSeleccionados = Array.from(equiposContainer.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
-        const traecheck=document.querySelectorAll("#form-Eventos input[type='checkbox']")
-        console.log(salaFinal)
-        console.log(traecheck)
+        const equiposSeleccionados = Array.from(equiposContainer.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+
+        console.log(salaFinal);
+        console.log(equiposSeleccionados);
+
         if (salaFinal && equiposSeleccionados.length > 0) {
             equiposSeleccionados.forEach(equipoSerial => {
                 fetch('http://localhost:3000/mover-equipo', {
@@ -46,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ equipoId: equipoSerial, nuevaSala: salaFinal })
                 })
-                
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Error al mover el equipo');
