@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log(document.getElementById("form"))
     document.getElementById("form").addEventListener("submit", function(event) {
-        console.log(document.getElementById("submit"))
         event.preventDefault();
     
         const usuario = document.getElementById("Correo").value;
@@ -10,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         errorElement.innerText = '';
 
-        
         if (usuario.trim() === '' || Contrasena.trim() === '') {
             errorElement.innerText = 'Por favor, complete todos los campos.';
             return;
@@ -21,10 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                usuario: usuario,
-                Contrasena: Contrasena
-            })
+            body: JSON.stringify({ usuario, Contrasena })
         })
         .then(response => {
             if (!response.ok) {
@@ -34,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             console.log('Inicio de sesión exitoso:', data);
-            window.location.href="/front/Html/Salas.html"
+            localStorage.setItem('usuario', JSON.stringify(data.usuario));
+            window.location.href = "/front/Html/Salas.html"; 
         })
         .catch(error => {
             console.error('Error:', error);

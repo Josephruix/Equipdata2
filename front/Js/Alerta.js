@@ -1,10 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
-    
-    var icono = document.querySelector('.icono');
-
-    
-    icono.addEventListener('click', function() {
-        alert("¡Tienes una nueva notificación!");
-       
-    });
-});
+function actualizarCampanaNotificaciones(mensaje) {
+    const campanaNotificaciones = document.getElementById('notificacion');
+    const nuevoMensaje = document.createElement('div');
+    nuevoMensaje.textContent = mensaje;
+    campanaNotificaciones.appendChild(nuevoMensaje);
+}

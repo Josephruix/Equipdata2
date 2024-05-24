@@ -20,11 +20,38 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="card-text">Capacidad de equipos: ${datos.Capacidad_de_Equipos}</p>
                             <p class="card-text">N-Equipos en la sala: ${datos.Equipos_en_sala}</p>
                             <button class="btn btn-primary ver-mas" data-sala="${datos.Nombre}">Ver Más</button>
+                            <button class="btn btn-danger eliminar-Salas">Eliminar</button>
                         </div>
                     </div>
                 `;
                 equiposContainer.appendChild(nuevoli);
+                nuevoli.querySelector('.eliminar-Salas').addEventListener('click', () => {
+                    const Nombre = datos.Nombre;
+                    eliminarSala(Nombre);
+                }); 
             });
+            function eliminarSala(Nombre) {
+                fetch(`http://localhost:3000/eliminar-Salas/${Nombre}`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al eliminar el equipo');
+                    }
+            
+                    const SalasCard = document.querySelector(`.card[data-Nombre="${Nombre}"]`);
+                    if (SalasCardCard) {
+                        SalasCardCard.remove();
+                        console.log('Equipo eliminado correctamente');
+                    } else {
+                        console.error('El elemento a eliminar no se encontró en el DOM.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+            
 
             equiposContainer.addEventListener('click', (event) => {
                 if (event.target && event.target.classList.contains('ver-mas')) {
