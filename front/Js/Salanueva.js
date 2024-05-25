@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Respuesta del servidor:', data);
             document.getElementById('success-message').innerText = "Se agrego la nueva Sala";
+            window.location.href = `/front/html/nuevoequipo.html`;
         })
         .catch(error => {
             console.error('Error:', error);

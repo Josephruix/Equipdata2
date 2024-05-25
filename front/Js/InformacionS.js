@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const SalasCard = document.querySelector(`.card[data-nombre="${Nombre}"]`);
                     if (SalasCard) {
                         SalasCard.remove();
-                        alert('Sala eliminada correctamente');
+                        alert(`se ha eliminado correctamente la sala: ${Nombre}`);
                     } else {
                         console.error('El elemento a eliminar no se encontró en el DOM.');
                     }

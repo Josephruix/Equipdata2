@@ -14,75 +14,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Datos de equipos recibidos:', data);
                 const equiposContainer = document.getElementById('Equipos-F');
 
-              
                 function createEquipoCard(datos) {
                     const nuevoDiv = document.createElement('div');
                     nuevoDiv.classList.add('card', 'col-md-4');
                     nuevoDiv.setAttribute('data-tipo', datos.Tipo_de_Equipo);
+
+                    const contenidoCard = `
+                        <div class="card-body">
+                            <h5 class="card-title">${datos.Marca}</h5>
+                            <p class="card-text">${datos.idEquipos}</p>
+                            <p class="estado">${datos.Estado}</p>
+                            <button class="btn btn-primary ver-mas">Ver más</button>
+                            <div class="contenido-adicional" style="display: none;">
+                                <p>${datos.Descripcion}</p>
+                                <p>${datos.Empresa}</p>
+                                <p>${datos.Estado}</p>
+                                <p>${datos.Tipo_de_Equipo}</p>
+                            </div>
+                            <button class="btn btn-danger eliminar-equipo">Eliminar</button>
+                            <button class="btn btn-secondary editar-estado">Editar Estado</button>
+                            <div class="editar-estado-form" style="display: none;">
+                                <input type="text" class="nuevo-estado" placeholder="Nuevo Estado" />
+                                <button class="btn btn-success guardar-estado">Guardar</button>
+                            </div>
+                        </div>
+                    `;
+
                     if (datos.img) {
-                        nuevoDiv.innerHTML = `
-                            <img src="/front/images/uno.wenp" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">${datos.Marca}</h5>
-                                <p class="card-text">${datos.idEquipos}</p>
-                                <button class="btn btn-primary ver-mas">Ver más</button>
-                                <div class="contenido-adicional" style="display: none;">
-                                    <p>${datos.Descripcion}</p>
-                                    <p>${datos.Empresa}</p>
-                                    <p>${datos.Estado}</p>
-                                    <p>${datos.Tipo_de_Equipo}</p>
-                                </div>
-                              <button class="btn btn-danger eliminar-equipo">Eliminar</button>
-                                
-                            `;
+                        nuevoDiv.innerHTML = `<img src="data:image/png;base64,${datos.img}" class="card-img-top" alt="...">${contenidoCard}`;
                     } else {
-                        nuevoDiv.innerHTML = `
-                            <div class="card-body">
-                                <h5 class="card-title">${datos.Marca}</h5>
-                                <p class="card-text">${datos.idEquipos}</p>
-                                <button class="btn btn-primary ver-mas">Ver más</button>
-                                <div class="contenido-adicional" style="display: none;">
-                                    <p>${datos.Descripcion}</p>
-                                    <p>${datos.Empresa}</p>
-                                    <p>${datos.Estado}</p>
-                                    <p>${datos.Tipo_de_Equipo}</p>
-                                </div>
-                             <button class="btn btn-danger eliminar-equipo">Eliminar</button>
-                            `;
+                        nuevoDiv.innerHTML = contenidoCard;
                     }
+
                     equiposContainer.appendChild(nuevoDiv);
+
                     nuevoDiv.querySelector('.eliminar-equipo').addEventListener('click', () => {
                         const serial = datos.idEquipos;
                         eliminarEquipo(serial);
                     });
-                }
-                
-                function eliminarEquipo(serial) {
-                    fetch(`http://localhost:3000/eliminar-equipo/${serial}`, {
-                        method: 'DELETE',
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error al eliminar el equipo');
+
+                    const editarEstadoBtn = nuevoDiv.querySelector('.editar-estado');
+                    const editarEstadoForm = nuevoDiv.querySelector('.editar-estado-form');
+                    const guardarEstadoBtn = nuevoDiv.querySelector('.guardar-estado');
+                    const nuevoEstadoInput = nuevoDiv.querySelector('.nuevo-estado');
+
+                    editarEstadoBtn.addEventListener('click', () => {
+                        editarEstadoForm.style.display = editarEstadoForm.style.display === 'none' ? 'block' : 'none';
+                    });
+
+                    guardarEstadoBtn.addEventListener('click', () => {
+                        const nuevoEstado = nuevoEstadoInput.value;
+                        if (nuevoEstado) {
+                            actualizarEstado(datos.idEquipos, nuevoEstado, nuevoDiv);
                         }
-                        
-                        const equipoCard = document.querySelector(`.card[data-serial="${serial}"]`);
-                        if (equipoCard) {
-                            equipoCard.remove();
-                            console.log('Equipo eliminado correctamente');
-                        } else {
-                            console.error('El elemento a eliminar no se encontró en el DOM.');
-                            alert("Equipo eliminado")
-                            
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
                     });
                 }
-                
-            
-
                 function filterEquiposByTipo(tipoSeleccionado) {
                     const equipos = document.querySelectorAll('.card');
                     equipos.forEach(equipo => {
@@ -102,7 +88,52 @@ document.addEventListener('DOMContentLoaded', () => {
                         filterEquiposByTipo(tipoSeleccionado);
                     });
                 });
+                function actualizarEstado(idEquipo, nuevoEstado, card) {
+                    fetch(`http://localhost:3000/actualizar-estado/${idEquipo}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ estado: nuevoEstado })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al actualizar el estado del equipo');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(data.mensaje);
+                        card.querySelector('.estado').textContent = nuevoEstado;
+                        card.querySelector('.editar-estado-form').style.display = 'none';
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
 
+                function eliminarEquipo(serial) {
+                    fetch(`http://localhost:3000/eliminar-equipo/${serial}`, {
+                        method: 'DELETE',
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al eliminar el equipo');
+                        }
+
+                        const equipoCard = document.querySelector(`.card[data-serial="${serial}"]`);
+                        if (equipoCard) {
+                            equipoCard.remove();
+                            alert('Equipo eliminado correctamente, ');
+                        } else {
+                            console.error('El elemento a eliminar no se encontró en el DOM.');
+                            alert(`El equipo con el id: ${serial} ha sido eliminado, Atualiza la pagina para ver los cambios`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
 
                 data.forEach(datos => {
                     createEquipoCard(datos);
