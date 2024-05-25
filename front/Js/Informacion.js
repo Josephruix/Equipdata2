@@ -1,12 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const sala = urlParams.get('sala');
-    function actualizarCampanaNotificaciones(mensaje) {
-        const campanaNotificaciones = document.getElementById('notificacion');
-        const nuevoMensaje = document.createElement('div');
-        nuevoMensaje.textContent = mensaje;
-        campanaNotificaciones.appendChild(nuevoMensaje);
-    }
+
     if (sala) {
         fetch(`http://localhost:3000/consulta/${sala}`)
             .then(response => {
@@ -29,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <img src="/front/images/uno.wenp" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">${datos.Marca}</h5>
-                                <p class="card-text">${datos.Serial}</p>
+                                <p class="card-text">${datos.idEquipos}</p>
                                 <button class="btn btn-primary ver-mas">Ver más</button>
                                 <div class="contenido-adicional" style="display: none;">
                                     <p>${datos.Descripcion}</p>
@@ -44,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         nuevoDiv.innerHTML = `
                             <div class="card-body">
                                 <h5 class="card-title">${datos.Marca}</h5>
-                                <p class="card-text">${datos.Serial}</p>
+                                <p class="card-text">${datos.idEquipos}</p>
                                 <button class="btn btn-primary ver-mas">Ver más</button>
                                 <div class="contenido-adicional" style="display: none;">
                                     <p>${datos.Descripcion}</p>
@@ -57,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     equiposContainer.appendChild(nuevoDiv);
                     nuevoDiv.querySelector('.eliminar-equipo').addEventListener('click', () => {
-                        const serial = datos.Serial;
+                        const serial = datos.idEquipos;
                         eliminarEquipo(serial);
                     });
                 }
@@ -70,13 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!response.ok) {
                             throw new Error('Error al eliminar el equipo');
                         }
-                        actualizarCampanaNotificaciones(`Se ha eliminado la sala ${Nombre}`);
+                        
                         const equipoCard = document.querySelector(`.card[data-serial="${serial}"]`);
                         if (equipoCard) {
                             equipoCard.remove();
                             console.log('Equipo eliminado correctamente');
                         } else {
                             console.error('El elemento a eliminar no se encontró en el DOM.');
+                            alert("Equipo eliminado")
+                            
                         }
                     })
                     .catch(error => {

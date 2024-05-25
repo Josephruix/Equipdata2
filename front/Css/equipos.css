@@ -124,3 +124,7 @@ body {
 .navbar-2 .col:last-child {
   margin-right: 150px; /* Empuja el último botón hacia la derecha */
 }
+.Success {
+  color: rgb(11, 12, 11);
+  font-weight: bold;
+}

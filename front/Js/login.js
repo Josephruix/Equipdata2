@@ -5,7 +5,27 @@ document.addEventListener("DOMContentLoaded", function() {
         const usuario = document.getElementById("Correo").value;
         const Contrasena = document.getElementById("Contrasena").value;
         const errorElement = document.getElementById('error');
-
+    
+         
+            const usuarioAutenticado = JSON.parse(localStorage.getItem('usuario'));
+        
+            
+            if (usuarioAutenticado && usuarioAutenticado.tipo === 'admind') {
+                
+                const botonesEliminarSalas = document.querySelectorAll('.eliminar-Salas');
+                botonesEliminarSalas.forEach(boton => {
+                    boton.style.display = 'block';
+                });
+        
+                const botonesEliminarEquipos = document.querySelectorAll('.eliminar-equipo');
+                botonesEliminarEquipos.forEach(boton => {
+                    boton.style.display = 'block';
+                });
+            }
+            
+     
+        
+        
         errorElement.innerText = '';
 
         if (usuario.trim() === '' || Contrasena.trim() === '') {

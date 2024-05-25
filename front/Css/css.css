@@ -43,8 +43,8 @@ a{
 }
 
 .Error{
-    color: red;
-   font-size:  14px;
+    color: rgb(19, 13, 13);
+   font-size:  bold;
 }
 .Link{
     text-align: center;

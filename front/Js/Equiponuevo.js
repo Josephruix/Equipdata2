@@ -8,7 +8,7 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
     var Equipo = document.getElementById('Equipo').value;
     var Sala = document.getElementById('idsala').value;
     var serial = document.getElementById('idequipos').value;
-    var imagen = document.getElementById('imagen').files[0];
+    //var imagen = document.getElementById('imagen').files[0];
 
     var datos = {
         Marca: Marca,
@@ -18,7 +18,7 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
         Equipo: Equipo,
         Sala: Sala,
         serial: serial,
-        imagen: imagen ? imagen.buffer : null
+        //imagen: imagen ? imagen.buffer : null
     };
 
     fetch('http://localhost:3000/G-Equipos', {
@@ -36,8 +36,14 @@ document.getElementById('form-equipos').addEventListener('submit', function(even
     })
     .then(data => {
         console.log('Respuesta del servidor:', data);
+        document.getElementById('success-message').innerText = "Equipo añadido correctamente";
     })
     .catch(error => {
         console.error('Error:', error);
+        if (error.mensaje) {
+            document.getElementById('error').innerText = error.mensaje;
+        } else {
+            document.getElementById('error').innerText = "Error de conexión. Por favor, intenta de nuevo más tarde.";
+        }
     });
 });

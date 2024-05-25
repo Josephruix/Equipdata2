@@ -35,10 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             console.log('Respuesta del servidor:', data);
-       
+            document.getElementById('success-message').innerText = "Se agrego la nueva Sala";
         })
         .catch(error => {
             console.error('Error:', error);
+            if (error.mensaje) {
+                document.getElementById('error').innerText = error.mensaje;
+            } else {
+                document.getElementById('error').innerText = "Error de conexión. Por favor, intenta de nuevo más tarde.";
+            }
             
         });
     });

@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.forEach(equipo => {
                         const checkbox = document.createElement('input');
                         checkbox.type = 'checkbox';
-                        checkbox.value = equipo.Serial;
-                        checkbox.id = `equipo-${equipo.Serial}`;
+                        checkbox.value = equipo.idEquipos;
+                        checkbox.id = `equipo-${equipo.idEquipos}`;
                         const label = document.createElement('label');
                         label.textContent = equipo.Marca;
                         label.htmlFor = `equipo-${equipo.Serial}`;
@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .then(data => {
                     console.log(data.mensaje);
+                    document.getElementById('success-message').innerText = "Se movio el equipo con exito";
                 })
                 .catch(error => {
                     console.error('Error:', error);
